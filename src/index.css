@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.centered-cell {
+  text-align: center;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.card-saving{
+  border: solid 3px #EE0F0F;
+  border-radius: 10px;
+  width: 40%;
+  background-color: #E7575A;
+  margin: 5px;
+  
+}
+.separator{
+  border: solid 2px #EE0F0F;
+}
+
+.card-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card-saving-header{
+  color: white; 
+  font-weight:bold; 
+  font-size: 20px;
+  padding: 8px 14px 8px 14px;
+  
+}
+
+.card-saving-body{
+  color: white; 
+  font-weight:bold; 
+  font-size: 20px;
+  padding: 10px 14px 10px 14px;
+  margin: 20px;
+}
+
+.no-border{
+  border: none;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
+.show-number-saving{
+  display: flex;
+  justify-content: space-around
+}
+
+.show-savings{
+  width: 60%;
+}
+.numbers-generated{
+  width: 35%;
+}
+
+.generate-number{
+  height: 45vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container-genarate-numbers{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.card-number-body{
+  text-align: center;
+  height: 100%;
+}
+
+.btn-generate-number{
+  margin-left: 15px;
+  background-color: #40515D;
+  border: solid 2.5px #011627;
+  border-radius: 10px;
+  width: 45%;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-generate-number:hover{
+  background-color: #011627;
+}
+
+.input-generate-number{
+  width: 45%;
+  background-color: #40515D;
+  border: solid 2.5px #011627;
+  border-radius: 10px;
+
+  color: white;
+}
+
+
+
+
+.card-number{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-number-footer{
+  width: 100%;
+  height: 20%;
+}
+.button-save-number{
+  width: 100%;
+  background-color: #40515D;
+  border: solid 2.5px #011627;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  height: 80%;
+}
+
+.button-save-number:hover{
+  background-color: #011627;
+}
+
+.card-number-text{
+  height: 50%;
+  border: #011627 solid 2px;
+  border-radius: 5px;
+  margin-top: 25px;
+  font-size: 60px;
+  width: 60%;
+  place-self: center;
+
+}
