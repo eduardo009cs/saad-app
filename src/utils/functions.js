@@ -3,8 +3,8 @@ import swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import {config} from '../utils/loadEnvironmentConfig'
 import { DateTime } from 'luxon';
-
-
+import { Howl } from 'howler';
+import sound from "../media/soundNumber.mp3"
 export function showAlert(message, icon, focus=""){
     onFocus(focus)
     const mySwal = withReactContent(swal)
@@ -128,15 +128,25 @@ export const getWaitingSavings = (savings) => {
 }
 
 export const generateNumber = (numbers, date) =>{
-    console.log(numbers, date)
     const day = DateTime.fromISO(date).toFormat("ccc")
     let stop = false;
     let number = 0
+    let counter = 0;
     while(!stop){
         number = Math.floor(Math.random()*365) + 1
-        if(!numbers[config.days[day] - 1].includes(number) && number <= ( config.days[day]) * config.maxNumberForGroup && number > (config.days[day] - 1) * config.maxNumberForGroup ){
+        if(!numbers[config.days[day] - 1].includes(number) && number <= ( config.days[day]) * config.maxNumberForGroup && number > (config.days[day] - 1) * config.maxNumberForGroup && counter <= 5){
             stop = true
+            
         }
+        counter++;
     }
     return number
+}
+
+
+export const playSound  = () =>{
+    const audio = new Howl({
+        src:[sound]
+    })
+    audio.play();
 }

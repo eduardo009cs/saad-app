@@ -17,12 +17,7 @@ const ShowSavings = ({savings,users, reloadData}) =>{
     const [group, setGroup] = useState(0)
     const [title, setTitle] = useState("")
     
-    /*
-        Operacion 1: Agregar registro a savings_history 
-        Operación 2: Agregar registro a savings_user
-        Operación 3: Modificar registros para marcar pago
     
-    */
 
 
     const getDateFormated = (date) =>{

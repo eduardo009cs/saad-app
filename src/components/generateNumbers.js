@@ -1,9 +1,11 @@
 import { useState } from "react"
-import { assigningGroup, generateNumber, getTotalSavings, getWaitingSavings, sendRequest, showAlert, validateData } from "../utils/functions"
+import { assigningGroup, getTotalSavings, getWaitingSavings, playSound, sendRequest, showAlert, validateData } from "../utils/functions"
 import { config } from "../utils/loadEnvironmentConfig"
 import { DateTime } from "luxon"
 
 const GenerateNumbers = ({savings,numbersGenerated,users,reloadData}) =>{
+
+    
     const url = 'http://localhost:5000/api/v1/savings';
     const urlSavingUser = 'http://localhost:5000/api/v1/savingUsers';
     const [date, setDate] = useState("")
@@ -12,13 +14,18 @@ const GenerateNumbers = ({savings,numbersGenerated,users,reloadData}) =>{
         const day = DateTime.fromISO(date).toFormat("ccc")
         let stop = false;
         let num = 0
+        let counter = 0;
+        let msDelay = 50;
         while(!stop){
             num = Math.floor(Math.random()*365) + 1
             setNumber(num)
-            await delay(1000);
-            if(!numbersGenerated[config.days[day] - 1].includes(num) && num <= ( config.days[day]) * config.maxNumberForGroup && num > (config.days[day] - 1) * config.maxNumberForGroup ){
+            playSound();
+            await delay(msDelay);
+            if(!numbersGenerated[config.days[day] - 1].includes(num) && num <= ( config.days[day]) * config.maxNumberForGroup && num > (config.days[day] - 1) * config.maxNumberForGroup && counter > 10){
                 stop = true
             }
+            counter++;
+            msDelay += 50;
         }
         
     }

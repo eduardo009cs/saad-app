@@ -34,14 +34,16 @@ const SaadMain = () =>{
 
     return(
         <div className="App">
+            
             <div className="generate-number">
                 <GenerateNumbers savings={savings} numbersGenerated={numbers} reloadData={loadData} users={users}/>
+                
             </div>
             <div className="show-number-saving">
                 <div className="show-savings">
                     <ShowSavings savings={savings} users={users} reloadData={loadData} />
                 </div>
-                <div className="numbers-generated">
+                <div className="numbers-generated" >
                     <NumbersGenerated numbersGenerated={numbers}/>
                 </div>
             </div>
