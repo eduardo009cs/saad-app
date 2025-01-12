@@ -2,6 +2,8 @@ import { useState } from "react"
 import { assigningGroup, getTotalSavings, getWaitingSavings, playSound, sendRequest, showAlert, validateData } from "../utils/functions"
 import { config } from "../utils/loadEnvironmentConfig"
 import { DateTime } from "luxon"
+import Navbar from "./navbar"
+import Footer from "./footer"
 
 const GenerateNumbers = ({savings,numbersGenerated,users,reloadData}) =>{
 
@@ -74,46 +76,52 @@ const GenerateNumbers = ({savings,numbersGenerated,users,reloadData}) =>{
 
     const delay = (ms) => new Promise(resolve => setTimeout(resolve,ms));
     return(
+        
         <div className="container-genarate-numbers">
-            
-            <div className="card-number">
-                <div className="card-number-title">
-                    <h3>Generar Número Aleatorio</h3>
-                </div>
-                <div className="card-number-body">
-                    <div className="card-number-input">
-                        
-                        <input className="input-generate-number" type="date" placeholder="Seleccione una fecha" value={date} onChange={(e) => setDate(e.target.value)}/>
-                        <button className="btn-generate-number mb-3" type="button" onClick={() => generateNum()}>Generar</button>
+            <div className="container-header">
+                <Navbar></Navbar>
+            </div>
+            <div className="container-body generate-number">
+                <div className="card-number">
+                    
+                    <div className="card-number-body">
+                        <div className="card-number-input">
+                            
+                            <input className="input-generate-number" type="date" placeholder="Seleccione una fecha" value={date} onChange={(e) => setDate(e.target.value)}/>
+                            <button className="btn-generate-number mb-3" type="button" onClick={() => generateNum()}>Generar</button>
 
+                        </div>
+                        <div className="card-number-text">
+                            {number}
+                        </div>
                     </div>
-                    <div className="card-number-text">
-                        {number}
+                    <div className="card-number-footer">
+                        <button className="button-save-number" type="button" onClick={() => saveNumber()}>Guardar</button>
                     </div>
                 </div>
-                <div className="card-number-footer">
-                    <button className="button-save-number" type="button" onClick={() => saveNumber()}>Guardar</button>
+                <div className="card-group">
+                    <div className="card-saving text-center mb-3 centered">
+                        <div className="card-saving-header">
+                            Ahorro Total
+                        </div>
+                        <div className="separator"></div>
+                        <div className="card-saving-body">   
+                            {"$ " + getTotalSavings(savings)}
+                        </div>
+                    </div>
+                    <div className="card-saving text-center mb-3 centered" >
+                        <div className="card-saving-header">
+                            Ahorro Esperado
+                        </div>
+                        <div className="separator"></div>
+                        <div className="card-saving-body">   
+                            {"$ " + getWaitingSavings(savings)}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className="card-group">
-                <div className="card-saving text-center mb-3 centered">
-                    <div className="card-saving-header">
-                        Ahorro Total
-                    </div>
-                    <div className="separator"></div>
-                    <div className="card-saving-body">   
-                        {"$ " + getTotalSavings(savings)}
-                    </div>
-                </div>
-                <div className="card-saving text-center mb-3 centered" >
-                    <div className="card-saving-header">
-                        Ahorro Esperado
-                    </div>
-                    <div className="separator"></div>
-                    <div className="card-saving-body">   
-                        {"$ " + getWaitingSavings(savings)}
-                    </div>
-                </div>
+            <div className="container-footer">
+                <Footer></Footer>
             </div>
         </div>
     )
